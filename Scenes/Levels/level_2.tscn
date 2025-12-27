@@ -45,10 +45,8 @@ theme_override_font_sizes/font_size = 28
 text = "Score:"
 
 [node name="WinScreen" parent="." instance=ExtResource("5_8qsmg")]
-visible = false
 
 [node name="GameOverScreen" parent="." instance=ExtResource("6_fphuk")]
-visible = false
 offset_left = 4.0
 offset_top = 32.0
 offset_right = 1154.0
@@ -61,7 +59,6 @@ offset_right = 1147.0
 offset_bottom = 725.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("5_ovj6s")]
 offset_left = 4.0

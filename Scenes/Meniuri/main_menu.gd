@@ -1,7 +1,7 @@
 extends Control
 
-@export var level1_path: String = "res://Scenes/Levels/level1.tscn"
-@export var level2_path: String = "res://Scenes/Levels/level_2.tscn"
+var level1_path: String = "res://Scenes/Levels/level1.tscn"
+var level2_path: String = "res://Scenes/Levels/level_2.tscn"
 
 func _ready() -> void:
 	var menu_music = preload("res://Audio/Music/Menu.mp3")

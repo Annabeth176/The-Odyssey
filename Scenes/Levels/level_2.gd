@@ -1,17 +1,18 @@
 extends Node2D
+
 var table_scene = preload("res://Scenes/Obstacole/Table/table.tscn")
 var vase_scene = preload("res://Scenes/Obstacole/Vase/vase.tscn")
 var arrow_scene = preload("res://Scenes/Obstacole/Arrow/arrow.tscn")
 var obstacle_types := [table_scene, vase_scene]
 var obstacles : Array = []
-var arrow_heights := [350, 450, 500]  # Adăugat 500 pentru săgeți la nivel jos
+var arrow_heights := [350, 450, 500]
 const PLAYER2_START_POS := Vector2(150, 520)
 const CAM_START_POS := Vector2(576, 324)
 var difficulty : int
 const MAX_DIFFICULTY : int = 2
 var score : int
 const SCORE_MODIFIER : int = 10
-const WINNING_SCORE : int = 15000  # Scor pentru victorie (test cu 1000, apoi schimbă la 100000)
+const WINNING_SCORE : int = 15000
 var speed : float
 const START_SPEED : float = 10.0
 const MAX_SPEED : int = 25
@@ -19,7 +20,7 @@ const SPEED_MODIFIER : int = 5000
 var screen_size : Vector2
 var graund_height : int
 var game_running : bool
-var last_obs : Node2D
+var last_obs : Node2D = null
 var ground_offset : float = 0.0
 
 func _ready() -> void:
@@ -37,13 +38,18 @@ func new_game():
 	get_tree().paused = false
 	difficulty = 0
 	ground_offset = 0.0
+	last_obs = null  # Inițializează last_obs
+	
+	# Curăță obstacolele existente
 	for obs in obstacles:
 		obs.queue_free()
 	obstacles.clear()
+	
 	$Player2.position = PLAYER2_START_POS
 	$Player2.velocity = Vector2(0, 0)
 	$Camera2D.position = CAM_START_POS
 	$Graund.position = Vector2(0, 0)
+	
 	# Ascunde ecranele
 	if has_node("WinScreen"):
 		$WinScreen.visible = false
@@ -56,9 +62,6 @@ func _process(delta: float) -> void:
 		speed = min(speed, MAX_SPEED)
 		adjust_difficulty()
 		generate_obs()
-		
-		# Camera și player-ul rămân pe loc!
-		# Doar ground-ul și obstacolele se mișcă spre stânga
 		
 		# Mută ground-ul pentru efect de scroll infinit
 		ground_offset += speed
@@ -80,6 +83,7 @@ func _process(delta: float) -> void:
 		# Verifică dacă a câștigat
 		if score >= WINNING_SCORE:
 			game_won()
+			return
 		
 		# Actualizează scorul pe ecran
 		$ScoreLabel.text = "Score: " + str(int(score))
@@ -93,51 +97,60 @@ func _process(delta: float) -> void:
 			game_running = true
 
 func generate_obs():
-	# Generează obstacole când ultimul obstacol e suficient de departe
-	if obstacles.is_empty() or last_obs.position.x < screen_size.x - randi_range(500, 700):
-		var obs_type = obstacle_types[randi() % obstacle_types.size()]
-		# În loc de difficulty, aleге random 1-3 obstacole lipite
-		var num_obs = randi() % 3 + 1  # 1, 2, sau 3 obstacole
-		for i in range(num_obs):
-			var obs = obs_type.instantiate()
-			var sprite = obs.get_node("Sprite2D")
-			var obs_height = sprite.texture.get_height()
-			var obs_scale = sprite.scale
-			var obs_width = (sprite.texture.get_width()-350) * obs_scale.x
-			# Lipite unul de altul - fiecare la distanță de lățimea sprite-ului
-			var obs_x : int = screen_size.x + (i * obs_width)
-			var obs_y : int = screen_size.y - graund_height - (obs_height * obs_scale.y)/4
-			last_obs = obs
-			add_obs(obs, obs_x, obs_y)
-		# Săgeți apar după un scor minim, nu doar la dificultate maximă
-		if difficulty >= 1 and randi() % 3 == 0:  # 33% șansă după ce crește puțin dificultatea
-			var arrow = arrow_scene.instantiate()
-			var arrow_x : int = screen_size.x + 200
-			var arrow_y : int = arrow_heights[randi() % arrow_heights.size()]
-			add_obs(arrow, arrow_x, arrow_y)
+	# Verifică dacă trebuie să genereze obstacole
+	if obstacles.is_empty():
+		spawn_obstacle_group()
+	elif last_obs != null and last_obs.position.x < screen_size.x - randi_range(500, 700):
+		spawn_obstacle_group()
+
+func spawn_obstacle_group():
+	var obs_type = obstacle_types[randi() % obstacle_types.size()]
+	var num_obs = randi() % 3 + 1  # 1, 2, sau 3 obstacole
+	
+	for i in range(num_obs):
+		var obs = obs_type.instantiate()
+		var sprite = obs.get_node("Sprite2D")
+		var obs_height = sprite.texture.get_height()
+		var obs_scale = sprite.scale
+		var obs_width = (sprite.texture.get_width() - 350) * obs_scale.x
+		var obs_x : int = screen_size.x + (i * obs_width)
+		var obs_y : int = screen_size.y - graund_height - (obs_height * obs_scale.y) / 4
+		last_obs = obs
+		add_obs(obs, obs_x, obs_y)
+	
+	# Săgeți apar după un scor minim
+	if difficulty >= 1 and randi() % 3 == 0:
+		var arrow = arrow_scene.instantiate()
+		var arrow_x : int = screen_size.x + 200
+		var arrow_y : int = arrow_heights[randi() % arrow_heights.size()]
+		add_obs(arrow, arrow_x, arrow_y)
 
 func add_obs(obs: Node2D, x: int, y: int):
 	obs.position = Vector2(x, y)
-	obs.body_entered.connect(hit_obs)
+	# Verifică dacă nu e deja conectat pentru a evita conexiuni multiple
+	if not obs.body_entered.is_connected(hit_obs):
+		obs.body_entered.connect(hit_obs)
 	add_child(obs)
 	obstacles.append(obs)
 
 func remove_obs(obs):
-	obs.queue_free()
-	obstacles.erase(obs)
+	if obs != null and is_instance_valid(obs):
+		obs.queue_free()
+		obstacles.erase(obs)
 
 func hit_obs(body):
 	if body.name == "Player2":
 		game_over()
 
 func adjust_difficulty():
-	difficulty = score / SPEED_MODIFIER
+	difficulty = score / SCORE_MODIFIER
 	difficulty = min(difficulty, MAX_DIFFICULTY)
 
 func game_over():
 	get_tree().paused = true
 	game_running = false
 	print("GAME OVER! Scor final:", int(score))
+	
 	# Arată ecranul de game over
 	if has_node("GameOverScreen"):
 		$GameOverScreen.show_game_over(int(score))
@@ -148,6 +161,7 @@ func game_won():
 	get_tree().paused = true
 	game_running = false
 	print("VICTORIE! Scor final:", int(score))
+	
 	# Arată ecranul de victorie
 	if has_node("WinScreen"):
 		$WinScreen.visible = true
