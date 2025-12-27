@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://h5y6yivgx4eu"]
+[gd_scene load_steps=9 format=3 uid="uid://h5y6yivgx4eu"]
 
 [ext_resource type="Texture2D" uid="uid://c7854k1qoy64b" path="res://Background/Hallway(1).png" id="1_oylv5"]
 [ext_resource type="Script" uid="uid://cyy0wjypkfmja" path="res://Scenes/Levels/level_2.gd" id="1_w2ac1"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cwey23ts7igpn" path="res://Scenes/Meniuri/win_screen.tscn" id="5_8qsmg"]
 [ext_resource type="PackedScene" uid="uid://dt7wlcd6k3pud" path="res://Scenes/Meniuri/pause_menu.tscn" id="5_ovj6s"]
 [ext_resource type="PackedScene" uid="uid://cj3uemcbwfa2o" path="res://Scenes/Meniuri/game_over_screen.tscn" id="6_fphuk"]
+[ext_resource type="PackedScene" uid="uid://857dnpg5ntaw" path="res://Scenes/Meniuri/instructions_level2.tscn" id="7_pnnky"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_w2ac1")
@@ -44,14 +45,23 @@ theme_override_font_sizes/font_size = 28
 text = "Score:"
 
 [node name="WinScreen" parent="." instance=ExtResource("5_8qsmg")]
+visible = false
 
 [node name="GameOverScreen" parent="." instance=ExtResource("6_fphuk")]
+visible = false
 offset_left = 4.0
 offset_top = 32.0
 offset_right = 1154.0
 offset_bottom = 680.0
 
+[node name="Control2" parent="." instance=ExtResource("7_pnnky")]
+offset_left = -4.0
+offset_top = 76.0
+offset_right = 1147.0
+offset_bottom = 725.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("5_ovj6s")]
 offset_left = 4.0
