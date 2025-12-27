@@ -11,7 +11,7 @@ var difficulty : int
 const MAX_DIFFICULTY : int = 2
 var score : int
 const SCORE_MODIFIER : int = 10
-const WINNING_SCORE : int = 20000  # Scor pentru victorie (test cu 1000, apoi schimbă la 100000)
+const WINNING_SCORE : int = 15000  # Scor pentru victorie (test cu 1000, apoi schimbă la 100000)
 var speed : float
 const START_SPEED : float = 10.0
 const MAX_SPEED : int = 25
@@ -25,6 +25,9 @@ var ground_offset : float = 0.0
 func _ready() -> void:
 	screen_size = get_window().size
 	graund_height = $Graund.get_node("Sprite2D").texture.get_height()
+	var runner_music = preload("res://Audio/Music/Level2.mp3")
+	runner_music.loop = true
+	AudioManager.play_music(runner_music)
 	new_game()
 
 func new_game():

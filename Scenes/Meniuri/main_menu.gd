@@ -4,8 +4,16 @@ extends Control
 @export var level2_path: String = "res://Scenes/Levels/level_2.tscn"
 
 func _ready() -> void:
+	var menu_music = preload("res://Audio/Music/Menu.mp3")
+	menu_music.loop = true
+	AudioManager.play_music(menu_music)
 	$VBoxContainer/StartButton.pressed.connect(_on_start_pressed)
 	$VBoxContainer/Level2Button.pressed.connect(_on_level2_pressed)
+	
+	# Buton Settings (dacă există)
+	if has_node("VBoxContainer/SettingsButton"):
+		$VBoxContainer/SettingsButton.pressed.connect(_on_settings_pressed)
+	
 	$VBoxContainer/QuitButton.pressed.connect(_on_quit_pressed)
 	
 	# Buton de reset (opțional, pentru debug)
@@ -36,3 +44,8 @@ func _on_level2_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+func _on_settings_pressed() -> void:
+	# Arată settings menu dacă există în scenă
+	if has_node("SettingsMenu"):
+		$SettingsMenu.show_settings()

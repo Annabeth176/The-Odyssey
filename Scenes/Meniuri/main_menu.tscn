@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bukpfefbhtj80"]
+[gd_scene load_steps=4 format=3 uid="uid://bukpfefbhtj80"]
 
 [ext_resource type="Script" uid="uid://qrc7lt37mtov" path="res://Scenes/Meniuri/main_menu.gd" id="1_5o00i"]
+[ext_resource type="PackedScene" uid="uid://nw1eu6alf3wj" path="res://Scenes/Meniuri/settings_menu.tscn" id="2_tgonv"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_dxnes"]
 
@@ -54,3 +55,15 @@ text = "Quit"
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Reset Progress"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Settings"
+
+[node name="SettingsMenu" parent="." instance=ExtResource("2_tgonv")]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 372.0
+offset_right = 833.0
+offset_bottom = 372.0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3nalh6x31yk5"]
+[gd_scene load_steps=17 format=3 uid="uid://c3nalh6x31yk5"]
 
 [ext_resource type="Texture2D" uid="uid://byqdadbn7gjnr" path="res://Background/Nivel 1 Scena 1..PNG" id="1_4d3fe"]
+[ext_resource type="Script" uid="uid://c27tw613uujls" path="res://Scenes/Levels/level_1.gd" id="1_wiu4c"]
 [ext_resource type="Texture2D" uid="uid://dv104i728uvw8" path="res://Background/Nivel 1 Scena 2..PNG" id="2_3ipdw"]
 [ext_resource type="Texture2D" uid="uid://dja8pbmqlns06" path="res://Background/Nivel 1 Scena 3..PNG" id="3_8h4de"]
 [ext_resource type="Texture2D" uid="uid://dvqhmc78knoon" path="res://Background/BackgroundLevel1.4.jpg" id="4_jcebb"]
@@ -17,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://nycylgapnp3s" path="res://Scenes/Meniuri/instructions_level1.tscn" id="15_hk4vc"]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_wiu4c")
 
 [node name="Background" type="Node2D" parent="."]
 
