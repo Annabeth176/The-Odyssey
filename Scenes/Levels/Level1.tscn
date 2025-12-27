@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3nalh6x31yk5"]
+[gd_scene load_steps=16 format=3 uid="uid://c3nalh6x31yk5"]
 
 [ext_resource type="Texture2D" uid="uid://byqdadbn7gjnr" path="res://Background/Nivel 1 Scena 1..PNG" id="1_4d3fe"]
 [ext_resource type="Texture2D" uid="uid://dv104i728uvw8" path="res://Background/Nivel 1 Scena 2..PNG" id="2_3ipdw"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://pce35ytktr73" path="res://Sprites/healthbarProgress.png" id="11_77iba"]
 [ext_resource type="Script" uid="uid://bnogh444hjly2" path="res://Scenes/Levels/texture_progress_bar.gd" id="12_67y36"]
 [ext_resource type="PackedScene" uid="uid://dt7wlcd6k3pud" path="res://Scenes/Meniuri/pause_menu.tscn" id="14_67y36"]
+[ext_resource type="PackedScene" uid="uid://nycylgapnp3s" path="res://Scenes/Meniuri/instructions_level1.tscn" id="15_hk4vc"]
 
 [node name="Level1" type="Node2D"]
 
@@ -364,7 +365,14 @@ texture_progress = ExtResource("11_77iba")
 script = ExtResource("12_67y36")
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("14_67y36")]
+visible = false
 size_flags_horizontal = 2
 size_flags_vertical = 4
+
+[node name="Control2" parent="CanvasLayer" instance=ExtResource("15_hk4vc")]
+offset_left = -1.0
+offset_top = -76.0
+offset_right = 1150.0
+offset_bottom = 571.0
 
 [connection signal="timeout" from="Player/DamageTimer" to="Player" method="_on_timer_timeout"]
