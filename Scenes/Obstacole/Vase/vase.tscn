@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccx7fidf6286f"]
+
+[ext_resource type="Texture2D" uid="uid://br5p0wmttw16r" path="res://Sprites/vase.png" id="1_6wayf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3k7t8"]
+radius = 19.0
+height = 92.0
+
+[node name="Vase" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -5)
+scale = Vector2(0.30069932, 0.31988537)
+texture = ExtResource("1_6wayf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("CapsuleShape2D_3k7t8")

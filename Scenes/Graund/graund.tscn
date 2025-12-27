@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://btv0ay1u3tiki"]
+
+[ext_resource type="Texture2D" uid="uid://dottwdwe2ir43" path="res://Background/Podea.jpeg" id="1_2sta4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpagp"]
+size = Vector2(2152, 104)
+
+[node name="Graund" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 552)
+texture = ExtResource("1_2sta4")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(716, 552)
+texture = ExtResource("1_2sta4")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1429, 552)
+texture = ExtResource("1_2sta4")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1072, 602)
+shape = SubResource("RectangleShape2D_qpagp")

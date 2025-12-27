@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://s3ixt2cfd6jf"]
+
+[ext_resource type="Texture2D" uid="uid://bl6aq4erdyj1q" path="res://Sprites/Shield.png" id="1_eqis8"]
+[ext_resource type="Texture2D" uid="uid://ju14cjrji5e3" path="res://Sprites/sword.png" id="2_pvq6k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rsygr"]
+radius = 50.01
+
+[node name="SwordAndShield" type="CharacterBody2D" groups=["damage"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+rotation = -1.0471976
+scale = Vector2(0.054, 0.05)
+texture = ExtResource("1_eqis8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+rotation = -0.4660029
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_pvq6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -4)
+shape = SubResource("CircleShape2D_rsygr")

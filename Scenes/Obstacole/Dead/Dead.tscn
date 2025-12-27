@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv0a6orfk43p0"]
+
+[ext_resource type="Texture2D" uid="uid://cr4byuxe58wuv" path="res://Sprites/Dead1.png" id="1_7nbkl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sd57"]
+size = Vector2(142.5, 61)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["damage"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_7nbkl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -3)
+shape = SubResource("RectangleShape2D_1sd57")

@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3m51fuk1ayaa"]
+
+[ext_resource type="Texture2D" uid="uid://xv1k0eaxr7i3" path="res://Sprites/Player1.PNG" id="1_5h55h"]
+[ext_resource type="Script" uid="uid://bbm3a8p8dpr3m" path="res://Scenes/Player2/player_2.gd" id="1_mta8j"]
+[ext_resource type="Texture2D" uid="uid://d1skgtmqd0geg" path="res://Sprites/Player2.png" id="2_j8h2l"]
+[ext_resource type="Texture2D" uid="uid://e8aqjuvi3tlq" path="res://Sprites/Player3.png" id="3_mta8j"]
+[ext_resource type="Texture2D" uid="uid://qxedm28vr2id" path="res://Sprites/Player2 jos.png" id="5_4hjoa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dnt4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5h55h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4hjoa")
+}],
+"loop": false,
+"name": &"Drop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5h55h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j8h2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mta8j")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mta8j"]
+size = Vector2(1014.9998, 474.99994)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4hjoa"]
+radius = 31.0
+height = 100.0
+
+[node name="Player2" type="CharacterBody2D"]
+z_index = 1
+position = Vector2(0, 593.04)
+script = ExtResource("1_mta8j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.99999994, -9.039977)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_dnt4g")
+animation = &"Walk"
+autoplay = "Drop"
+
+[node name="Duck" type="CollisionShape2D" parent="."]
+position = Vector2(5.250001, 29.25)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_mta8j")
+
+[node name="Run" type="CollisionShape2D" parent="."]
+position = Vector2(-15, -7.039978)
+shape = SubResource("CapsuleShape2D_4hjoa")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

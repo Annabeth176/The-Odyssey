@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://h5y6yivgx4eu"]
+
+[ext_resource type="Texture2D" uid="uid://c7854k1qoy64b" path="res://Background/Hallway(1).png" id="1_oylv5"]
+[ext_resource type="Script" uid="uid://cyy0wjypkfmja" path="res://Scenes/Levels/level_2.gd" id="1_w2ac1"]
+[ext_resource type="PackedScene" uid="uid://btv0ay1u3tiki" path="res://Scenes/Graund/graund.tscn" id="2_w2ac1"]
+[ext_resource type="PackedScene" uid="uid://b3m51fuk1ayaa" path="res://Scenes/Player2/player2.tscn" id="3_ovj6s"]
+[ext_resource type="PackedScene" uid="uid://cwey23ts7igpn" path="res://Scenes/Meniuri/win_screen.tscn" id="5_8qsmg"]
+[ext_resource type="PackedScene" uid="uid://dt7wlcd6k3pud" path="res://Scenes/Meniuri/pause_menu.tscn" id="5_ovj6s"]
+[ext_resource type="PackedScene" uid="uid://cj3uemcbwfa2o" path="res://Scenes/Meniuri/game_over_screen.tscn" id="6_fphuk"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_w2ac1")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Backgroundlevel2_1" type="Sprite2D" parent="Background"]
+position = Vector2(955, 398.00003)
+rotation = 0.0020369133
+scale = Vector2(2.1234705, 2.51)
+texture = ExtResource("1_oylv5")
+
+[node name="Graund" parent="." instance=ExtResource("2_w2ac1")]
+position = Vector2(0, 10)
+
+[node name="Player2" parent="." instance=ExtResource("3_ovj6s")]
+position = Vector2(84, 521)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+zoom = Vector2(1.25, 1.25)
+limit_left = 1
+limit_top = 157
+limit_right = 1151
+limit_bottom = 654
+position_smoothing_enabled = true
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 125.0
+offset_top = 159.0
+offset_right = 216.0
+offset_bottom = 201.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "Score:"
+
+[node name="WinScreen" parent="." instance=ExtResource("5_8qsmg")]
+
+[node name="GameOverScreen" parent="." instance=ExtResource("6_fphuk")]
+offset_left = 4.0
+offset_top = 32.0
+offset_right = 1154.0
+offset_bottom = 680.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("5_ovj6s")]
+offset_left = 4.0
+offset_top = 147.0
+offset_right = 1153.0
+offset_bottom = 794.0
+rotation = 0.0049314476
