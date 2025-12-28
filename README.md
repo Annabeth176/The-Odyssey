@@ -1,152 +1,355 @@
-<a id="readme-top"></a>
+# The Odyssey
 
-<!-- SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+A two-level 2D adventure game where you play as Odysseus infiltrating Troy after 
+the Trojan Horse breaches the city walls. Navigate dangerous environments and 
+outrun your enemies to reach the throne room and end the ten-year war.
 
-<!-- HEADER -->
-<br />
-<div align="center">
-	<a href="https://github.com/BudzioT/Godot_Super-Wakatime">
-		<img src="https://cloud-bo1ln2br1-hack-club-bot.vercel.app/0godotwaka22.png"  alt="Godot Wakatime"/>
-	</a>
-	<h3 align="center"> Godot Super Wakatime </h3>
-	<p align="center">
-		Tool to measure time spent in loved by many people game engine - Godot
-		<br />
-		Officially approved to use in events created by Hack Club
-		<br />
-		<br />
-		<a href="https://godotengine.org/asset-library/asset/3484">Get from Asset Lib</a>
-		·
-		<a href="https://youtu.be/rqAc-YdVXyM">View Demo</a>
-		·
-		<a href="https://github.com/BudzioT/Godot_Super-Wakatime/issues/new">Report Bug / Request Feature</a>
-	</p>
-</div>
+---
 
-<!-- CONTENTS -->
-<details>
-	<summary>Table of Contents</summary>
-	<ol>
-		<li>
-			<a href="#about">About The Project</a>
-			<ul>
-				<li><a href="#built-with">Built Using</a></li>
-			</ul>
-		</li>
-		<li>
-			<a href="#getting-started">Getting Started</a>
-			<ul>
-				<li><a href="#installation">Installation</a></li>
-			</ul>
-		</li>
-		<li><a href="#usage">Usage</a></li>
-		<li><a href="#license">License</a></li>
-	</ol>
-</details>
+## About the Game
 
+### Story
+The Trojan War has raged for ten long years. You are Odysseus, the cunning Greek 
+hero who devised the legendary Trojan Horse. Hidden inside the wooden giant, you 
+and your warriors have been brought through Troy's impenetrable walls.
 
-<!-- ABOUT -->
-## About The Project
-<br />
+LEVEL 1 - THE CITADEL COURTYARD:
+As night falls, you emerge into the burning citadel. Navigate through the 
+war-torn courtyard where flames rage, fallen swords and shields scatter the 
+ground, and the bodies of soldiers lie where they fell. Avoid enemy patrols 
+and reach the palace portal to continue your mission.
 
-[![Product Screenshot][product-screenshot]](https://waka.hackclub.com)
+LEVEL 2 - THE PALACE CHASE:
+Inside the palace, Trojan guards have spotted you! Sprint through the royal 
+halls in a desperate chase to reach the throne room. Dodge overturned tables, 
+leap over shattered vases, and avoid the endless volley of arrows from pursuing 
+archers. The guards grow faster and more aggressive—survive the gauntlet and 
+reach 15,000 points to claim the throne room and victory!
 
-This tool can successfully measure time spent building your games or apps in Godot.
-<br />
-Here's why:
-* It differentiates between switching a scene and script
-* It counts key presses as coding and mouse clicks as building scene
-* Changing scene structure results in a heartbeat sent
-* It correctly detects OS, machine name, language, editor, files
-* It can detect your cursor line and position
-* Time is split between: Building, Coding, Testing
-* In the future it will also detect testing your projects
+The fate of Greece rests on your speed and cunning.
 
-It works on both Linux and Windows, it wasn't tested on macOS yet
-<br />
-You can also see your time spent in the editor itself:
-[![Time in editor][time-screenshot]]
+### Main Features
+- Two distinct gameplay styles in one adventure
+- Level 1: Exploration and hazard avoidance
+- Level 2: Fast-paced infinite runner with increasing difficulty
+- Historical Trojan War setting with authentic atmosphere
+- Progressive challenge system - difficulty increases as you advance
+- Custom hand-drawn artwork and sprites
 
-<p align="right">(<a href="#readme-top">top</a>)</p>
+---
 
+## How to Play
 
-### Built Using
-I used the Ouch! CLI tool for decompression of files <br />
-This project was built using one simple, yet powerful language.<br />
-It required a lot of workarounds, but it was a pleasure to use it
-* [![GDScript][Godot]][Godot-url]
-* [![Ouch!][Ouch-shield]][Ouch-url]
+### Controls
 
-<p align="right">(<a href="#readme-top">top</a>)</p>
+#### Keyboard
+- W / Up Arrow - Move Forward
+- A / Left Arrow - Move Left
+- S / Down Arrow - Move Backward
+- D / Right Arrow - Move Right
+- SPACE - Jump
+- ESC - Pause Menu
 
-<!-- GETTING STARTED -->
-## Getting Started
-How to install and use this software? It's easy!
+### Objective
+- **Level 1**: Navigate through obstacles and find the portal
+- **Level 2**: Survive the chase and reach 15,000 points to win
 
-### Installation
-You can either download it from the [Godot Asset Library](https://godotengine.org/asset-library/asset/3484).
-<br />Or you can manually install it, here's how to do it!
-1. Clone the repository
-	```sh
-	git clone https://github.com/BudzioT/Godot_Super-Wakatime.git
-	```
-2. Go into your project
-3. Insert the entire `./addons` folder into your project `res://` directory
+---
 
-<p align="right">(<a href="#readme-top">top</a>)</p>
+## Obstacles
 
-<!-- USAGE -->
-## Usage
-Don't know how to use this plugin? Here are the steps:
-1. Turn on the plugin in your plugins. In your `Project -> Project Settings -> Plugins -> `Click the `Enable` checkbox near this plugin
-2. If prompted for API key, provide it from Wakatime website
-3. if there is an issue with it, please manually create `~/.wakatime.cfg` file with these contents:
-    ```sh
-    [settings]
-    api_key=xxxx
-    ```
-    Where xxxx is your api key
-<br /><br />
-If you are coming from Hack Club use this:
-    ```sh
-    [settings]
-    api_url = https://hackatime.hackclub.com/api/hackatime/v1
-    api_key=xxxx
-    ```
-4. Wakatime CLI should have been installed automatically along with Ouch! Decompression library
-5. Work on your project! You should see your results on either Wakatime or Hackatime!
-6. You can also see your time at the bottom panel
+### Level 1 - Citadel Courtyard:
+- **Flames** - Raging fires that block your path
+- **Fallen Swords** - Sharp blades scattered on the ground
+- **Shields** - Scattered bronze shields creating obstacles
+- **Corpses** - Bodies of fallen soldiers
 
-<p align="right">(<a href="#readme-top">top</a>)</p>
+### Level 2 - Palace Chase:
+- **Tables** - Overturned furniture to jump over
+- **Vases** - Shattered pottery to jump over
+- **Arrows** - Constant projectiles from pursuing archers
+- **Increasing Speed** - The chase gets faster as you progress
 
-<!-- LICENSE -->
+---
+
+## Installation and Running
+
+### For Players
+
+#### Download from Itch.io
+1. Visit the game page: https://annabeth176.itch.io/odyssey
+2. Click the **Download** button
+3. Download **index.zip** (44 MB)
+4. Extract the archive to a folder of your choice
+5. Open the extracted folder
+6. Double-click the **.exe** file to start the game
+
+**Note**: You may need to allow the game through Windows Defender/Firewall on first launch.
+
+### System Requirements
+
+**Minimum:**
+- OS: Windows 7/8/10/11
+- RAM: 2 GB
+- Storage: 100 MB
+- Graphics: Any modern GPU with OpenGL 3.3 support
+
+**Recommended:**
+- OS: Windows 10/11
+- RAM: 4 GB
+- Storage: 200 MB
+
+---
+
+## Technologies Used
+
+- **Engine**: Godot Engine 4.5.1
+- **Language**: GDScript
+- **Art**: Created by me with assets from PNGEgg
+- **Tools**: Krita and Photoshop
+- **Music**: Pixabay (royalty-free music)
+
+---
+
+## For Developers
+
+### Open in Godot
+
+#### Requirements
+- Godot Engine 4.5.1 or newer
+- Git (optional)
+
+#### Setup
+1. Clone the repository:
+```bash
+git clone https://github.com/Annabeth176/The-Odyssey.git
+cd The-Odyssey
+```
+
+2. Open Godot Engine 4.5.1
+3. Click "Import"
+4. Select the project.godot file
+5. Click "Import & Edit"
+6. Press F5 to run the game
+
+### Project Structure
+```
+The-Odyssey/
+├── res://
+│   ├── addons/
+│   │   └── godot_super-wakatime/     # Plugin for time tracking
+│   ├── Audio/
+│   │   └── Music/
+│   │       ├── Level1.mp3             # Level 1 music
+│   │       ├── Level2.mp3             # Level 2 music
+│   │       └── Menu.mp3               # Menu music
+│   ├── Background/
+│   │   ├── BackgroundLevel1.1.PNG
+│   │   ├── BackgroundLevel1.2.jpg
+│   │   ├── BackgroundLevel1.3.jpg
+│   │   ├── BackgroundLevel1.4.jpg
+│   │   ├── DirtLevel1.PNG
+│   │   ├── Hallway(1).png
+│   │   ├── Hallway.png
+│   │   ├── Nivel 1 Scena 1..PNG
+│   │   ├── Nivel 1 Scena 2..PNG
+│   │   ├── Nivel 1 Scena 3..PNG
+│   │   ├── Nivel 1 Scena 5.PNG
+│   │   ├── Podea.jpeg
+│   │   ├── podea.png
+│   │   ├── Portal.png
+│   │   └── Screenshot 2025-12-27 235137.png
+│   ├── images/
+│   │   ├── godot_logo.png
+│   │   └── icon.jpg
+│   ├── Scenes/
+│   │   ├── Graund/
+│   │   │   └── graund.tscn
+│   │   ├── Levels/
+│   │   │   ├── Level1.tscn
+│   │   │   ├── level_1.gd
+│   │   │   ├── level_2.gd
+│   │   │   ├── level_2.tscn
+│   │   │   └── texture_progress_bar.gd
+│   │   ├── Meniuri/
+│   │   │   ├── game_over_screen.gd
+│   │   │   ├── game_over_screen.tscn
+│   │   │   ├── instructions_level1.tscn
+│   │   │   ├── instructions_level1.tscn
+│   │   │   ├── instructions_level2.tscn
+│   │   │   ├── instructions_level_1.gd
+│   │   │   ├── instructions_level_2.gd
+│   │   │   ├── main_menu.gd
+│   │   │   ├── main_menu.tscn
+│   │   │   ├── pause_menu.gd
+│   │   │   ├── pause_menu.tscn
+│   │   │   ├── settings_menu.gd
+│   │   │   ├── settings_menu.tscn
+│   │   │   ├── win_screen.gd
+│   │   │   └── win_screen.tscn
+│   │   ├── Obstacle/
+│   │   │   ├── Arrow/
+│   │   │   │   ├── arrow.gd
+│   │   │   │   └── arrow.tscn
+│   │   │   ├── Dead/
+│   │   │   │   └── Dead.tscn
+│   │   │   ├── Fire/
+│   │   │   │   ├── animated_sprite_2d.gd
+│   │   │   │   └── fire.tscn
+│   │   │   ├── sword and shield/
+│   │   │   │   └── character_body_2d.tscn
+│   │   │   ├── Table/
+│   │   │   │   └── table.tscn
+│   │   │   └── Vase/
+│   │   ├── Player/
+│   │   │   ├── player.gd
+│   │   │   └── Player.tscn
+│   │   ├── Player2/
+│   │   │   ├── player2.tscn
+│   │   │   └── player_2.gd
+│   │   ├── Portal/
+│   │   │   ├── portal.gd
+│   │   │   └── portal.tscn
+│   │   ├── Score/
+│   │   │   └── Score.tscn
+│   │   └── UI/
+│   │       └── sprite_2d.gd
+│   ├── Screenshoturi/
+│   │   ├── InstructiuniLevel1.png
+│   │   ├── InstructiuniLevel2.png
+│   │   ├── MainMenu.png
+│   ├── Sprites/
+│   │   ├── Arrow.png
+│   │   ├── Dead1.png
+│   │   ├── healthbarProgress.png
+│   │   ├── healthbarUnder.png
+│   │   ├── Player1.PNG
+│   │   ├── Player2 jos.png
+│   │   ├── Player2.png
+│   │   ├── Player3.png
+│   │   ├── Shadow.png
+│   │   ├── Shield.png
+│   │   ├── Sprite-sheet-campfire.png
+│   │   ├── sword.png
+│   │   ├── Table.png
+│   │   └── vase.png
+│   ├── audio_manager.gd
+│   ├── export_presets.cfg
+│   ├── fire.gd
+│   ├── icon.gd
+│   ├── icon.svg
+│   ├── index.apple-touch-icon.png
+│   ├── index.icon.png
+│   ├── index.png
+│   ├── project.godot              # Main project file
+│   ├── README.md                  # This file
+│   ├── save_manager.gd
+│   ├── Test.tscn
+│   ├── The-Odyssey.apple-touch-icon.png
+│   ├── The-Odyssey.icon.png
+│   └── The-Odyssey.png
+```
+
+### Contributing
+If you would like to contribute:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/NewFeature`)
+3. Commit your changes (`git commit -m 'Add NewFeature'`)
+4. Push to the branch (`git push origin feature/NewFeature`)
+5. Open a Pull Request
+
+---
+
+## Known Bugs
+
+- Performance may vary on older systems
+- Level 2 difficulty curve is very steep - feedback welcome!
+
+Report new bugs at: https://github.com/Annabeth176/The-Odyssey/issues
+
+---
+
+## Future Plans
+
+- Add more levels with different historical settings
+- Implement difficulty settings (Easy, Normal, Hard)
+- Add achievement system
+- Create mobile version for Android and iOS
+- Add more enemy types and boss battles
+- Improve visual effects and animations
+- Add sound effects
+- Implement save/load system
+
+---
+
+## Credits
+
+**Development**: Annabeth176
+- Game design and programming
+- Level design
+
+**Art**: Annabeth176
+- Created using Krita and Photoshop
+- Additional assets from PNGEgg
+
+**Music**: Pixabay (royalty-free music)
+
+**Engine**: Godot Engine 4.5.1
+
+---
+
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+### Code
+This project's code is licensed under the **MIT License**.
+You are free to use, modify, and distribute the code with attribution.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Art & Assets
+All original artwork and sprites are **© 2024 Annabeth176. All Rights Reserved.**
+The visual assets may not be used, reproduced, or distributed without explicit permission.
 
+Assets sourced from PNGEgg are used under their respective licenses.
 
-<!-- URLS -->
-[contributors-shield]: https://img.shields.io/github/contributors/budziot/Godot_Super-Wakatime?style=for-the-badge
-[contributors-url]: https://github.com/BudzioT/Godot_Super-Wakatime/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/budziot/Godot_Super-Wakatime?style=for-the-badge
-[forks-url]: https://github.com/BudzioT/Godot_Super-Wakatime/forks
-[stars-shield]: https://img.shields.io/github/stars/budziot/Godot_Super-Wakatime?style=for-the-badge
-[stars-url]: https://github.com/BudzioT/Godot_Super-Wakatime/stargazers
-[issues-shield]: https://img.shields.io/github/issues/budziot/Godot_Super-Wakatime?style=for-the-badge
-[issues-url]: https://github.com/BudzioT/Godot_Super-Wakatime/issues
-[license-shield]: https://img.shields.io/github/license/budziot/Godot_Super-Wakatime?style=for-the-badge
-[license-url]: https://github.com/BudzioT/Godot_Super-Wakatime/blob/master/addons/godot_super-wakatime/LICENSE
-[product-screenshot]: https://cloud-j4wibbzz7-hack-club-bot.vercel.app/0image.png
-[product-logo]: https://cloud-j4wibbzz7-hack-club-bot.vercel.app/2godotwaka2.png
-[Godot]: https://img.shields.io/badge/Godot%20Engine-478CBF?logo=godotengine&logoColor=fff&style=flat
-[Godot-url]: https://godotengine.org/
-[Ouch-shield]: https://img.shields.io/badge/Ouch!-tool-blue?label=Ouch!
-[Ouch-url]: https://github.com/ouch-org/ouch
-[time-screenshot]: https://cloud-l88kldf50-hack-club-bot.vercel.app/0image.png
+### Music
+Music is sourced from Pixabay under their royalty-free license.
+
+See the LICENSE file for full details.
+
+---
+
+## Contact
+
+- **Itch.io**: https://annabeth176.itch.io/odyssey
+- **GitHub**: https://github.com/Annabeth176/The-Odyssey
+- **Profile**: https://annabeth176.itch.io
+
+---
+
+## Support
+
+If you enjoyed the game:
+- Star the repository on GitHub
+- Leave a rating and review on Itch.io
+- Share with friends who love indie games
+- Report bugs to help improve the game
+
+---
+
+## Screenshots
+
+### Level 1 - The Citadel Courtyard
+![Citadel Courtyard](Screenshoturi/InstructiuniLevel1.png)
+*Navigate through flames and fallen warriors in the war-torn courtyard*
+
+### Level 2 - The Palace Chase
+![Palace Chase](Screenshoturi/InstructiuniLevel2.png)
+*Sprint through the palace while dodging arrows and obstacles*
+
+### Main Menu
+![Main Menu](Screenshoturi/MainMenu.png)
+
+---
+
+**Made using Godot Engine 4.5.1**
+
+[⬆ Back to top](#the-odyssey)
